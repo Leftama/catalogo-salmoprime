@@ -15,6 +15,7 @@ Sitio web estático para mostrar catálogo de productos alimenticios, específic
 
 ## 📁 Estructura del Proyecto
 
+```bash
 .
 ├── assets/
 │ └── imgs/ # Imágenes del catálogo
