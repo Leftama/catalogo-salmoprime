@@ -33,7 +33,7 @@ Sitio web estático para mostrar catálogo de productos alimenticios, específic
 ├── index.html # Página principal
 ├── .gitignore # Archivos ignorados por Git
 └── README.md # Este archivo
-```bash
+```
 
 ## 🛠 Tecnologías Utilizadas
 
