@@ -42,7 +42,7 @@
                 "products.item2.feature3": "Versatilidad culinaria",
 
                 // Producto 3
-                "products.item3.title": "Salmón Atlántico - Filte Industrial con piel IVP",
+                "products.item3.title": "Salmón Atlántico - Filete Industrial con piel IVP",
                 "products.item3.description": "Filete con piel de consistencia uniforme, ideal para procesos industriales y servicios de alimentación a gran escala.",
                 "products.item3.feature1": "Calibre: todos los calibres (1 - 8)",
                 "products.item3.feature2": "Alto rendimiento",
