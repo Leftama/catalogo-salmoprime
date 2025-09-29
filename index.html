@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SalmoPrime - Salmón de Calidad Premium</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <!-- Navegación -->
+    <nav>
+        <div class="container">
+            <div class="logo">Salmo<span>Prime</span></div>
+            <ul class="nav-links">
+                <li><a href="#portada" data-translate="nav.home">Portada</a></li>
+                <li><a href="#quienes-somos" data-translate="nav.about">Quiénes Somos</a></li>
+                <li><a href="#productos" data-translate="nav.products">Nuestros Productos</a></li>
+                <li><a href="#contacto" data-translate="nav.contact">Contacto</a></li>
+                <li>
+                    <div class="language-selector">
+                        <button id="lang-es" class="lang-btn active" data-lang="es"></button>
+                        <button id="lang-pt" class="lang-btn" data-lang="pt"></button>
+                        <button id="lang-en" class="lang-btn" data-lang="en"></button>
+                    </div>
+                </li>
+                <li><button class="pdf-button" id="downloadPdf" data-translate="button.download">Descargar PDF</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Portada -->
+    <section id="portada">
+        <div class="container">
+            <h1 data-translate="home.title">Catálogo de Productos</h1>
+            <div class="logo-container">
+                <div class="logo-large">SalmoPrime</div>
+                <div class="subtitle" data-translate="home.subtitle">Salmón de Calidad Premium desde Chile</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiénes Somos -->
+    <section id="quienes-somos">
+        <div class="container">
+            <h2 class="section-title" data-translate="about.title">Quiénes Somos</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p data-translate="about.text1">En SalmoPrime, nos dedicamos a la producción y exportación de salmón de la más alta calidad, cultivado en las prístinas aguas de Puerto Montt, Chile. Nuestra empresa combina la tradición acuícola con tecnología de vanguardia para ofrecer un producto que supera los más exigentes estándares internacionales.</p>
+                    <p data-translate="about.text2">Con más de 15 años de experiencia en el sector, hemos perfeccionado cada etapa de nuestro proceso: desde la selección de ovas hasta el empaque final, garantizando un producto fresco, seguro y de sabor excepcional. Nuestro compromiso con la sostenibilidad y el bienestar animal nos distingue en el mercado.</p>
+                    <p data-translate="about.text3">Trabajamos con los mejores chefs y restaurantes de todo el mundo, proporcionando el ingrediente estrella para creaciones culinarias memorables. Más que un producto, ofrecemos una experiencia gastronómica que eleva cualquier plato a la excelencia.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Instalaciones SalmoPrime">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nuestros Productos -->
+    <section id="productos">
+        <div class="container">
+            <h2 class="section-title" data-translate="products.title">Nuestros Productos</h2>
+            <p style="text-align: center; margin-bottom: 40px;" data-translate="products.description">Todos nuestros productos cumplen con las normas internacionales para exportación desde Chile hacia cualquier país. Garantizamos calidad y seguridad para el consumo humano.</p>
+            
+            <div class="products-grid">
+                <!-- Producto 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="./assets/imgs/porcionado-con-piel.png" alt="Salmón Atlántico - Porción con piel">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title" data-translate="products.item1.title">Salmón Atlántico - Porción con piel IVP</h3>
+                        <span class="product-quality" data-translate="products.quality.standard">Standard</span>
+                        <p class="product-description" data-translate="products.item1.description">Porción perfectamente cortada con piel, ideal para preparaciones a la parrilla o plancha que realzan su textura y sabor.</p>
+                        <div class="product-price">USD 12</div>
+                        <ul class="product-features">
+                            <li data-translate="products.item1.feature1">Calibre: 180 gramos</li>
+                            <li data-translate="products.item1.feature2">Textura firme y jugosa</li>
+                            <li data-translate="products.item1.feature3">Color natural intenso</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Producto 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="./assets/imgs/porcionado-sin-piel.png" alt="Salmón Atlántico - Porción sin piel">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title" data-translate="products.item2.title">Salmón Atlántico - Porción sin piel IVP</h3>
+                        <span class="product-quality" data-translate="products.quality.premium">Premium</span>
+                        <p class="product-description" data-translate="products.item2.description">Porción sin piel de calidad superior, lista para cocinar. Perfecta para platos donde la presentación es fundamental.</p>
+                        <div class="product-price">USD 9.5</div>
+                        <ul class="product-features">
+                            <li data-translate="products.item2.feature1">Calibre: 8 oz</li>
+                            <li data-translate="products.item2.feature2">Máxima pureza de sabor</li>
+                            <li data-translate="products.item2.feature3">Versatilidad culinaria</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="./assets/imgs/filete-industrial-con-piel.png" alt="Salmón Atlántico - Filete industrial con piel">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title" data-translate="products.item3.title">Salmón Atlántico - Filete Industrial con piel IVP</h3>
+                        <span class="product-quality" data-translate="products.quality.industrial">Industrial</span>
+                        <p class="product-description" data-translate="products.item3.description">Filete con piel de consistencia uniforme, ideal para procesos industriales y servicios de alimentación a gran escala.</p>
+                        <div class="product-price">USD 8</div>
+                        <ul class="product-features">
+                            <li data-translate="products.item3.feature1">Calibre: todos los calibres (1 - 8)</li>
+                            <li data-translate="products.item3.feature2">Alto rendimiento</li>
+                            <li data-translate="products.item3.feature3">Consistencia garantizada</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="./assets/imgs/filete-standard-con-piel.png" alt="Salmón Atlántico - Filete con piel">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title" data-translate="products.item4.title">Salmón Atlántico - Filete Standard con piel IVP</h3>
+                        <span class="product-quality" data-translate="products.quality.standard">Standard</span>
+                        <p class="product-description" data-translate="products.item4.description">Filete con piel de calidad estándar, balance perfecto entre calidad y precio para diversos usos culinarios.</p>
+                        <div class="product-price">USD 7.5</div>
+                        <ul class="product-features">
+                            <li data-translate="products.item4.feature1">Calibre: todos los calibres (1 - 8)</li>
+                            <li data-translate="products.item4.feature2">Sabor consistente</li>
+                            <li data-translate="products.item4.feature3">Ideal para restaurantes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Producto 5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="./assets/imgs/filete-premium-con-piel.png" alt="Salmón Atlántico - Filete Premium con piel">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title" data-translate="products.item5.title">Salmón Atlántico - Filete Premium con piel IVP</h3>
+                        <span class="product-quality" data-translate="products.quality.premium">Premium</span>
+                        <p class="product-description" data-translate="products.item5.description">Filete con piel de categoría premium, con vetas de grasa perfectamente distribuidas para un sabor excepcional.</p>
+                        <div class="product-price">USD 9.5</div>
+                        <ul class="product-features">
+                            <li data-translate="products.item5.feature1">Calibre: todos los calibres (1 - 8)</li>
+                            <li data-translate="products.item5.feature2">Textura superior</li>
+                            <li data-translate="products.item5.feature3">Sabor intenso y delicado</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Producto 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="./assets/imgs/filete-premium-sin-piel.png" alt="Salmón Atlántico - Filete sin piel">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title" data-translate="products.item6.title">Salmón Atlántico - Fiñete Premium sin piel Standard</h3>
+                        <span class="product-quality" data-translate="products.quality.premium">Premium</span>
+                        <p class="product-description" data-translate="products.item6.description">Nuestro producto estrella: filete sin piel de máxima calidad, seleccionado meticulosamente para los paladares más exigentes.</p>
+                        <div class="product-price">USD 12.6</div>
+                        <ul class="product-features">
+                            <li data-translate="products.item6.feature1">Calibre: todos lo calibres (1 - 8)</li>
+                            <li data-translate="products.item6.feature2">Máxima pureza y frescura</li>
+                            <li data-translate="products.item6.feature3">Experiencia gastronómica superior</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Los demás productos seguirían el mismo patrón -->
+                <!-- Por brevedad, solo incluyo dos productos como ejemplo -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <div class="container">
+            <h2 class="section-title" style="color: #ffffff;" data-translate="contact.title">Contacto</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3 data-translate="contact.info.title">Información de Contacto</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong data-translate="contact.info.address">Dirección:</strong><br>
+                            Puerto Montt, Región de Los Lagos, Chile
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <strong data-translate="contact.info.phone">Teléfono:</strong><br>
+                            +56 9 5736 7981
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <strong data-translate="contact.info.email">Email:</strong><br>
+                            contacto@salmoprime.cl
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div>
+                            <strong data-translate="contact.info.website">Sitio Web:</strong><br>
+                            www.salmoprime.cl
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3 data-translate="contact.form.title">Envíanos un Mensaje</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="nombre" data-translate="contact.form.name">Nombre</label>
+                            <input type="text" id="nombre" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-translate="contact.form.email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="asunto" data-translate="contact.form.subject">Asunto</label>
+                            <input type="text" id="asunto" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje" data-translate="contact.form.message">Mensaje</label>
+                            <textarea id="mensaje" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn" data-translate="contact.form.send">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>SalmoPrime &copy; 2023 - <span data-translate="footer.rights">Todos los derechos reservados</span></p>
+            <p data-translate="footer.description">Exportadores de salmón de calidad premium desde Chile al mundo</p>
+        </div>
+    </footer>
+
+    <script src="./js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de entornos de desarrollo/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivos de dependencias (si en el futuro agregas npm)
+node_modules/
+
+# Archivos de construcción (si usas preprocesadores)
+/dist
+/build
+
+# Archivos temporales
+*.tmp
+*.log
+
+# Archivos de entorno (variables sensibles)
+.env
+.env.local
+
+# Archivos de respaldo/versiones antiguas
+*.bak
+*~
+index-v*.html
