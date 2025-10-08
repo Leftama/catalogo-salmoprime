@@ -27,3 +27,6 @@ node_modules/
 *.bak
 *~
 index-v*.html
+
+# Archivos varios
+.cronograma.md
