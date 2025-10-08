@@ -389,6 +389,16 @@
             padding: 30px 0;
         }
         
+        /* Estilos para ocultar elementos en PDF */
+        .pdf-hide {
+            display: block; /* Visible en la web */
+        }
+        
+        /* Cuando se está generando PDF, ocultar elementos marcados */
+        .body-generating-pdf .pdf-hide {
+            display: none !important;
+        }
+        
         /* Estilos para impresión/PDF */
         @media print {
             nav, .pdf-button, .contact-form, footer {

@@ -39,7 +39,7 @@
                 "products.item2.description": "Porción sin piel de calidad superior, lista para cocinar. Perfecta para platos donde la presentación es fundamental.",
                 "products.item2.feature1": "Calibre: 8 oz",
                 "products.item2.feature2": "Máxima pureza de sabor",
-                "products.item2.feature3": "Versatilidad culinaria",
+                "products.item2.feature3": "Versatilidad culinária",
 
                 // Producto 3
                 "products.item3.title": "Salmón Atlántico - Filete Industrial con piel IVP",
@@ -302,36 +302,115 @@
                 });
             });
             
-            // Función para generar y descargar el PDF
-            document.getElementById('downloadPdf').addEventListener('click', function() {
+            // Función para generar y descargar el PDF - VERSIÓN MEJORADA
+            document.getElementById('downloadPdf').addEventListener('click', async function() {
                 const { jsPDF } = window.jspdf;
                 const doc = new jsPDF('p', 'mm', 'a4');
                 
-                const element = document.body;
-                
-                html2canvas(element, {
+                // Configuración común para html2canvas
+                const canvasOptions = {
                     scale: 2,
                     useCORS: true,
-                    logging: false
-                }).then(canvas => {
-                    const imgData = canvas.toDataURL('image/png');
+                    logging: false,
+                    backgroundColor: '#ffffff'
+                };
+                
+                try {
+                    // Agregar clase al body para ocultar elementos en PDF
+                    document.body.classList.add('body-generating-pdf');
+                    
+                    // Capturar PORTADA
+                    const portadaElement = document.getElementById('portada');
+                    const portadaCanvas = await html2canvas(portadaElement, canvasOptions);
+                    const portadaImgData = portadaCanvas.toDataURL('image/png');
+                    
+                    // Agregar portada como página completa
                     const imgWidth = doc.internal.pageSize.getWidth();
+                    const imgHeight = (portadaCanvas.height * imgWidth) / portadaCanvas.width;
+                    doc.addImage(portadaImgData, 'PNG', 0, 0, imgWidth, imgHeight);
+                    
+                    // Capturar QUIÉNES SOMOS
+                    const aboutElement = document.getElementById('quienes-somos');
+                    const aboutCanvas = await html2canvas(aboutElement, {
+                        ...canvasOptions,
+                        scrollY: -window.scrollY
+                    });
+                    const aboutImgData = aboutCanvas.toDataURL('image/png');
+                    
+                    // Agregar nueva página para "Quiénes Somos"
+                    doc.addPage();
+                    const aboutImgHeight = (aboutCanvas.height * imgWidth) / aboutCanvas.width;
+                    doc.addImage(aboutImgData, 'PNG', 0, 0, imgWidth, aboutImgHeight);
+                    
+                    // Capturar PRODUCTOS
+                    const productosElement = document.getElementById('productos');
+                    const productosCanvas = await html2canvas(productosElement, {
+                        ...canvasOptions,
+                        scrollY: -window.scrollY
+                    });
+                    const productosImgData = productosCanvas.toDataURL('image/png');
+                    
+                    // Calcular altura de productos y dividir en páginas si es necesario
+                    const productosImgHeight = (productosCanvas.height * imgWidth) / productosCanvas.width;
                     const pageHeight = doc.internal.pageSize.getHeight();
-                    const imgHeight = canvas.height * imgWidth / canvas.width;
-                    let heightLeft = imgHeight;
+                    let heightLeft = productosImgHeight;
                     let position = 0;
                     
-                    doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                    // Agregar primera página de productos
+                    doc.addPage();
+                    doc.addImage(productosImgData, 'PNG', 0, position, imgWidth, productosImgHeight);
                     heightLeft -= pageHeight;
                     
+                    // Agregar páginas adicionales para productos si es necesario
                     while (heightLeft >= 0) {
-                        position = heightLeft - imgHeight;
+                        position = heightLeft - productosImgHeight;
                         doc.addPage();
-                        doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                        doc.addImage(productosImgData, 'PNG', 0, position, imgWidth, productosImgHeight);
                         heightLeft -= pageHeight;
                     }
                     
+                    // Capturar CONTACTO (sin formulario gracias a la clase body-generating-pdf)
+                    const contactoElement = document.getElementById('contacto');
+                    const contactoCanvas = await html2canvas(contactoElement, {
+                        ...canvasOptions,
+                        scrollY: -window.scrollY
+                    });
+                    const contactoImgData = contactoCanvas.toDataURL('image/png');
+                    
+                    // Calcular altura del contacto
+                    const contactoImgHeight = (contactoCanvas.height * imgWidth) / contactoCanvas.width;
+                    
+                    // Verificar si el contacto cabe en una sola página
+                    if (contactoImgHeight <= pageHeight) {
+                        // Agregar nueva página para contacto
+                        doc.addPage();
+                        doc.addImage(contactoImgData, 'PNG', 0, 0, imgWidth, contactoImgHeight);
+                    } else {
+                        // Si el contacto es muy largo, dividirlo
+                        doc.addPage();
+                        let contactoHeightLeft = contactoImgHeight;
+                        let contactoPosition = 0;
+                        
+                        doc.addImage(contactoImgData, 'PNG', 0, contactoPosition, imgWidth, contactoImgHeight);
+                        contactoHeightLeft -= pageHeight;
+                        
+                        while (contactoHeightLeft >= 0) {
+                            contactoPosition = contactoHeightLeft - contactoImgHeight;
+                            doc.addPage();
+                            doc.addImage(contactoImgData, 'PNG', 0, contactoPosition, imgWidth, contactoImgHeight);
+                            contactoHeightLeft -= pageHeight;
+                        }
+                    }
+                    
+                    // Guardar el PDF
                     doc.save('catalogo-salmoprime.pdf');
-                });
+                    
+                } catch (error) {
+                    console.error('Error al generar el PDF:', error);
+                    alert('Error al generar el PDF. Por favor, intenta nuevamente.');
+                } finally {
+                    // Remover la clase del body
+                    document.body.classList.remove('body-generating-pdf');
+                }
             });
         });
