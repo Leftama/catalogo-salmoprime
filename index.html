@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SalmoPrime - Salmón de Calidad Premium</title>
+    <title>SalmoPrime - Salmón de Calidad Premium desde Chile</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <link rel="stylesheet" href="./css/styles.css">
@@ -13,19 +13,28 @@
     <nav>
         <div class="container">
             <div class="logo">Salmo<span>Prime</span></div>
-            <ul class="nav-links">
+            
+            <!-- Menú Hamburguesa -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#portada" data-translate="nav.home">Portada</a></li>
                 <li><a href="#quienes-somos" data-translate="nav.about">Quiénes Somos</a></li>
                 <li><a href="#productos" data-translate="nav.products">Nuestros Productos</a></li>
+                <li><a href="#catalogo-pdf" data-translate="nav.catalog">Catálogo PDF</a></li>
                 <li><a href="#contacto" data-translate="nav.contact">Contacto</a></li>
                 <li>
                     <div class="language-selector">
-                        <button id="lang-es" class="lang-btn active" data-lang="es"></button>
-                        <button id="lang-pt" class="lang-btn" data-lang="pt"></button>
-                        <button id="lang-en" class="lang-btn" data-lang="en"></button>
+                        <button id="lang-es" class="lang-btn active" data-lang="es" title="Español"></button>
+                        <button id="lang-pt" class="lang-btn" data-lang="pt" title="Portugués"></button>
+                        <button id="lang-en" class="lang-btn" data-lang="en" title="English"></button>
                     </div>
                 </li>
-                <li><button class="pdf-button" id="downloadPdf" data-translate="button.download">Descargar PDF</button></li>
+                <li><a href="#" class="pdf-button" id="downloadPdfNav" data-translate="button.download">Descargar PDF</a></li>
             </ul>
         </div>
     </nav>
@@ -37,6 +46,10 @@
             <div class="logo-container">
                 <div class="logo-large">SalmoPrime</div>
                 <div class="subtitle" data-translate="home.subtitle">Salmón de Calidad Premium desde Chile</div>
+            </div>
+            <div class="scroll-indicator">
+                <span data-translate="home.scroll">Desplázate para explorar</span>
+                <div class="arrow"></div>
             </div>
         </div>
     </section>
@@ -50,6 +63,21 @@
                     <p data-translate="about.text1">En SalmoPrime, nos dedicamos a la producción y exportación de salmón de la más alta calidad, cultivado en las prístinas aguas de Puerto Montt, Chile. Nuestra empresa combina la tradición acuícola con tecnología de vanguardia para ofrecer un producto que supera los más exigentes estándares internacionales.</p>
                     <p data-translate="about.text2">Con más de 15 años de experiencia en el sector, hemos perfeccionado cada etapa de nuestro proceso: desde la selección de ovas hasta el empaque final, garantizando un producto fresco, seguro y de sabor excepcional. Nuestro compromiso con la sostenibilidad y el bienestar animal nos distingue en el mercado.</p>
                     <p data-translate="about.text3">Trabajamos con los mejores chefs y restaurantes de todo el mundo, proporcionando el ingrediente estrella para creaciones culinarias memorables. Más que un producto, ofrecemos una experiencia gastronómica que eleva cualquier plato a la excelencia.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-text" data-translate="about.feature1">15+ años de experiencia</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-text" data-translate="about.feature2">Exportación internacional</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-text" data-translate="about.feature3">Certificaciones de calidad</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="about-image">
                     <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Instalaciones SalmoPrime">
@@ -62,11 +90,18 @@
     <section id="productos">
         <div class="container">
             <h2 class="section-title" data-translate="products.title">Nuestros Productos</h2>
-            <p style="text-align: center; margin-bottom: 40px;" data-translate="products.description">Todos nuestros productos cumplen con las normas internacionales para exportación desde Chile hacia cualquier país. Garantizamos calidad y seguridad para el consumo humano.</p>
+            <p class="products-intro" data-translate="products.description">Todos nuestros productos cumplen con las normas internacionales para exportación desde Chile hacia cualquier país. Garantizamos calidad y seguridad para el consumo humano.</p>
+            
+            <div class="products-filter">
+                <button class="filter-btn active" data-filter="all" data-translate="products.filter.all">Todos</button>
+                <button class="filter-btn" data-filter="premium" data-translate="products.filter.premium">Premium</button>
+                <button class="filter-btn" data-filter="standard" data-translate="products.filter.standard">Standard</button>
+                <button class="filter-btn" data-filter="industrial" data-translate="products.filter.industrial">Industrial</button>
+            </div>
             
             <div class="products-grid">
                 <!-- Producto 1 -->
-                <div class="product-card">
+                <div class="product-card" data-category="standard">
                     <div class="product-image">
                         <img src="./assets/imgs/porcionado-con-piel.png" alt="Salmón Atlántico - Porción con piel">
                     </div>
@@ -84,7 +119,7 @@
                 </div>
                 
                 <!-- Producto 2 -->
-                <div class="product-card">
+                <div class="product-card" data-category="premium">
                     <div class="product-image">
                         <img src="./assets/imgs/porcionado-sin-piel.png" alt="Salmón Atlántico - Porción sin piel">
                     </div>
@@ -102,7 +137,7 @@
                 </div>
 
                 <!-- Producto 3 -->
-                <div class="product-card">
+                <div class="product-card" data-category="industrial">
                     <div class="product-image">
                         <img src="./assets/imgs/filete-industrial-con-piel.png" alt="Salmón Atlántico - Filete industrial con piel">
                     </div>
@@ -120,7 +155,7 @@
                 </div>
 
                 <!-- Producto 4 -->
-                <div class="product-card">
+                <div class="product-card" data-category="standard">
                     <div class="product-image">
                         <img src="./assets/imgs/filete-standard-con-piel.png" alt="Salmón Atlántico - Filete con piel">
                     </div>
@@ -138,7 +173,7 @@
                 </div>
 
                 <!-- Producto 5 -->
-                <div class="product-card">
+                <div class="product-card" data-category="premium">
                     <div class="product-image">
                         <img src="./assets/imgs/filete-premium-con-piel.png" alt="Salmón Atlántico - Filete Premium con piel">
                     </div>
@@ -156,23 +191,50 @@
                 </div>
 
                 <!-- Producto 6 -->
-                <div class="product-card">
+                <div class="product-card" data-category="premium">
                     <div class="product-image">
                         <img src="./assets/imgs/filete-premium-sin-piel.png" alt="Salmón Atlántico - Filete sin piel">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title" data-translate="products.item6.title">Salmón Atlántico - Fiñete Premium sin piel Standard</h3>
+                        <h3 class="product-title" data-translate="products.item6.title">Salmón Atlántico - Filete Premium sin piel IVP</h3>
                         <span class="product-quality" data-translate="products.quality.premium">Premium</span>
                         <p class="product-description" data-translate="products.item6.description">Nuestro producto estrella: filete sin piel de máxima calidad, seleccionado meticulosamente para los paladares más exigentes.</p>
                         <div class="product-price">USD 12.6</div>
                         <ul class="product-features">
-                            <li data-translate="products.item6.feature1">Calibre: todos lo calibres (1 - 8)</li>
+                            <li data-translate="products.item6.feature1">Calibre: todos los calibres (1 - 8)</li>
                             <li data-translate="products.item6.feature2">Máxima pureza y frescura</li>
                             <li data-translate="products.item6.feature3">Experiencia gastronómica superior</li>
                         </ul>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Catálogo PDF -->
+    <section id="catalogo-pdf">
+        <div class="container">
+            <h2 class="section-title" data-translate="catalog.title">Catálogo en PDF</h2>
+            <p class="catalog-intro" data-translate="catalog.intro">Visualiza nuestro catálogo completo en formato PDF. Mantiene el diseño original y es ideal para compartir o imprimir.</p>
+            
+            <div class="pdf-container">
+                <iframe id="pdfViewer" src="./pdf/catalogo-salmoprime-es.pdf" class="pdf-viewer" title="Visor de PDF del Catálogo de Productos">
+                    Tu navegador no soporta la visualización de PDFs. 
+                    <a href="./pdf/catalogo-salmoprime-es.pdf">Descarga el catálogo aquí</a>.
+                </iframe>
+            </div>
+            
+            <div class="pdf-controls">
+                <a href="#" id="downloadPdfCatalog" class="pdf-download-link" data-translate="catalog.download">
+                    <span class="download-icon">⬇️</span> Descargar Catálogo PDF
+                </a>
+                <button class="pdf-fullscreen" id="fullscreenToggle" data-translate="catalog.fullscreen">Pantalla Completa</button>
+            </div>
+            
+            <p class="pdf-alternative" data-translate="catalog.alternative">
+                Si el PDF no se visualiza correctamente, 
+                <a href="./pdf/catalogo-salmoprime-es.pdf">haz clic aquí para descargarlo</a>.
+            </p>
         </div>
     </section>
 
@@ -211,11 +273,19 @@
                             www.salmoprime.cl
                         </div>
                     </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="Facebook">📘</a>
+                        <a href="#" class="social-link" title="Instagram">📷</a>
+                        <a href="#" class="social-link" title="LinkedIn">💼</a>
+                        <a href="#" class="social-link" title="WhatsApp">💚</a>
+                    </div>
                 </div>
+                
                 <!-- FORMULARIO CON CLASE pdf-hide PARA OCULTAR EN PDF -->
                 <div class="contact-form pdf-hide">
                     <h3 data-translate="contact.form.title">Envíanos un Mensaje</h3>
-                    <form>
+                    <form id="contactForm">
                         <div class="form-group">
                             <label for="nombre" data-translate="contact.form.name">Nombre</label>
                             <input type="text" id="nombre" class="form-control" required>
@@ -230,7 +300,7 @@
                         </div>
                         <div class="form-group">
                             <label for="mensaje" data-translate="contact.form.message">Mensaje</label>
-                            <textarea id="mensaje" class="form-control" required></textarea>
+                            <textarea id="mensaje" class="form-control" rows="5" required></textarea>
                         </div>
                         <button type="submit" class="btn" data-translate="contact.form.send">Enviar Mensaje</button>
                     </form>
@@ -242,10 +312,27 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>SalmoPrime &copy; 2023 - <span data-translate="footer.rights">Todos los derechos reservados</span></p>
-            <p data-translate="footer.description">Exportadores de salmón de calidad premium desde Chile al mundo</p>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo">Salmo<span>Prime</span></div>
+                    <p data-translate="footer.description">Exportadores de salmón de calidad premium desde Chile al mundo</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#portada" data-translate="nav.home">Portada</a>
+                    <a href="#quienes-somos" data-translate="nav.about">Quiénes Somos</a>
+                    <a href="#productos" data-translate="nav.products">Productos</a>
+                    <a href="#catalogo-pdf" data-translate="nav.catalog">Catálogo</a>
+                    <a href="#contacto" data-translate="nav.contact">Contacto</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>SalmoPrime &copy; 2023 - <span data-translate="footer.rights">Todos los derechos reservados</span></p>
+            </div>
         </div>
     </footer>
+
+    <!-- Botón flotante para volver arriba -->
+    <button id="backToTop" class="back-to-top" title="Volver arriba">↑</button>
 
     <script src="./js/scripts.js"></script>
 </body>
