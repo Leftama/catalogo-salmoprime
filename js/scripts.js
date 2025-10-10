@@ -643,27 +643,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ANIMACIÓN DE ELEMENTOS AL SCROLL
-    const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.product-card, .about-content, .contact-container');
-        
-        elements.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.2;
-            
-            if (elementPosition < screenPosition) {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
-            }
-        });
-    };
+    // ANIMACIÓN DE ELEMENTOS AL SCROLL - VERSIÓN MEJORADA
+const animateOnScroll = function() {
+    const elements = document.querySelectorAll('.product-card, .about-content, .contact-container');
     
-    // Configurar elementos para animación
-    document.querySelectorAll('.product-card, .about-content, .contact-container').forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+        
+        if (elementPosition < screenPosition) {
+            // Solo modificar opacidad, NO transform
+            element.style.opacity = '1';
+            // No modificar transform para evitar conflictos con srcset
+        }
     });
+};
+
+// Configurar elementos para animación - VERSIÓN MEJORADA
+document.querySelectorAll('.product-card, .about-content, .contact-container').forEach(element => {
+    element.style.opacity = '0';
+    // NO aplicar transform: translateY aquí
+    element.style.transition = 'opacity 0.5s ease'; // Solo opacidad
+});
     
     window.addEventListener('scroll', animateOnScroll);
     // Ejecutar una vez al cargar la página

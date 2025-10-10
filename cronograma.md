@@ -1,14 +1,15 @@
 # 🗓️ Cronograma y Plan de Trabajo para Optimización de SalmoPrime
 
-📋 Resumen Ejecutivo
-Duración Total: 5-6 semanas
-Inversión: $0 (Netlify Free + Herramientas Open Source)
-Resultado: Sitio optimizado, PWA funcional, mejor performance y UX
+📋 **Resumen Ejecutivo**
+
+- Duración Total: 5-6 semanas
+- Inversión: $0 (Netlify Free + Herramientas Open Source)
+- Resultado: Sitio optimizado, PWA funcional, mejor performance y UX
 
 ## **🔄 FASE 1: Preparación y Optimizaciones Básicas**
 
-**Duración: Semana 1**
-**Objetivo: Mejorar el sitio actual sin cambios estructurales**
+- Duración: Semana 1
+- Objetivo: Mejorar el sitio actual sin cambios estructurales
 
 ## 📅 Semana 1 - Días 1-7
 

@@ -6,7 +6,7 @@
     <title>SalmoPrime - Salmón de Calidad Premium desde Chile</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/styles.min.css">
 </head>
 <body>
     <!-- Navegación -->
@@ -87,129 +87,189 @@
     </section>
 
     <!-- Nuestros Productos -->
-    <section id="productos">
-        <div class="container">
-            <h2 class="section-title" data-translate="products.title">Nuestros Productos</h2>
-            <p class="products-intro" data-translate="products.description">Todos nuestros productos cumplen con las normas internacionales para exportación desde Chile hacia cualquier país. Garantizamos calidad y seguridad para el consumo humano.</p>
-            
-            <div class="products-filter">
-                <button class="filter-btn active" data-filter="all" data-translate="products.filter.all">Todos</button>
-                <button class="filter-btn" data-filter="premium" data-translate="products.filter.premium">Premium</button>
-                <button class="filter-btn" data-filter="standard" data-translate="products.filter.standard">Standard</button>
-                <button class="filter-btn" data-filter="industrial" data-translate="products.filter.industrial">Industrial</button>
+<section id="productos">
+    <div class="container">
+        <h2 class="section-title" data-translate="products.title">Nuestros Productos</h2>
+        <p class="products-intro" data-translate="products.description">Todos nuestros productos cumplen con las normas internacionales para exportación desde Chile hacia cualquier país. Garantizamos calidad y seguridad para el consumo humano.</p>
+        
+        <div class="products-filter">
+            <button class="filter-btn active" data-filter="all" data-translate="products.filter.all">Todos</button>
+            <button class="filter-btn" data-filter="premium" data-translate="products.filter.premium">Premium</button>
+            <button class="filter-btn" data-filter="standard" data-translate="products.filter.standard">Standard</button>
+            <button class="filter-btn" data-filter="industrial" data-translate="products.filter.industrial">Industrial</button>
+        </div>
+        
+        <div class="products-grid">
+            <!-- Producto 1 -->
+            <div class="product-card" data-category="standard">
+                <div class="product-image">
+                    <img 
+                        src="./assets/imgs/optimized/porcionado-con-piel-large.webp"
+                        srcset="
+                            ./assets/imgs/optimized/porcionado-con-piel-small.webp 300w,
+                            ./assets/imgs/optimized/porcionado-con-piel-large.webp 600w
+                        "
+                        sizes="(max-width: 768px) 300px, 600px"
+                        alt="Salmón Atlántico - Porción con piel"
+                        loading="lazy"
+                        width="600"
+                        height="400">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title" data-translate="products.item1.title">Salmón Atlántico - Porción con piel IVP</h3>
+                    <span class="product-quality" data-translate="products.quality.standard">Standard</span>
+                    <p class="product-description" data-translate="products.item1.description">Porción perfectamente cortada con piel, ideal para preparaciones a la parrilla o plancha que realzan su textura y sabor.</p>
+                    <div class="product-price">USD 12</div>
+                    <ul class="product-features">
+                        <li data-translate="products.item1.feature1">Calibre: 180 gramos</li>
+                        <li data-translate="products.item1.feature2">Textura firme y jugosa</li>
+                        <li data-translate="products.item1.feature3">Color natural intenso</li>
+                    </ul>
+                </div>
             </div>
             
-            <div class="products-grid">
-                <!-- Producto 1 -->
-                <div class="product-card" data-category="standard">
-                    <div class="product-image">
-                        <img src="./assets/imgs/porcionado-con-piel.png" alt="Salmón Atlántico - Porción con piel">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title" data-translate="products.item1.title">Salmón Atlántico - Porción con piel IVP</h3>
-                        <span class="product-quality" data-translate="products.quality.standard">Standard</span>
-                        <p class="product-description" data-translate="products.item1.description">Porción perfectamente cortada con piel, ideal para preparaciones a la parrilla o plancha que realzan su textura y sabor.</p>
-                        <div class="product-price">USD 12</div>
-                        <ul class="product-features">
-                            <li data-translate="products.item1.feature1">Calibre: 180 gramos</li>
-                            <li data-translate="products.item1.feature2">Textura firme y jugosa</li>
-                            <li data-translate="products.item1.feature3">Color natural intenso</li>
-                        </ul>
-                    </div>
+            <!-- Producto 2 -->
+            <div class="product-card" data-category="premium">
+                <div class="product-image">
+                    <img 
+                        src="./assets/imgs/optimized/porcionado-sin-piel-large.webp"
+                        srcset="
+                            ./assets/imgs/optimized/porcionado-sin-piel-small.webp 300w,
+                            ./assets/imgs/optimized/porcionado-sin-piel-large.webp 600w
+                        "
+                        sizes="(max-width: 768px) 300px, 600px"
+                        alt="Salmón Atlántico - Porción sin piel"
+                        loading="lazy"
+                        width="600"
+                        height="400">
                 </div>
-                
-                <!-- Producto 2 -->
-                <div class="product-card" data-category="premium">
-                    <div class="product-image">
-                        <img src="./assets/imgs/porcionado-sin-piel.png" alt="Salmón Atlántico - Porción sin piel">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title" data-translate="products.item2.title">Salmón Atlántico - Porción sin piel IVP</h3>
-                        <span class="product-quality" data-translate="products.quality.premium">Premium</span>
-                        <p class="product-description" data-translate="products.item2.description">Porción sin piel de calidad superior, lista para cocinar. Perfecta para platos donde la presentación es fundamental.</p>
-                        <div class="product-price">USD 9.5</div>
-                        <ul class="product-features">
-                            <li data-translate="products.item2.feature1">Calibre: 8 oz</li>
-                            <li data-translate="products.item2.feature2">Máxima pureza de sabor</li>
-                            <li data-translate="products.item2.feature3">Versatilidad culinaria</li>
-                        </ul>
-                    </div>
+                <div class="product-info">
+                    <h3 class="product-title" data-translate="products.item2.title">Salmón Atlántico - Porción sin piel IVP</h3>
+                    <span class="product-quality" data-translate="products.quality.premium">Premium</span>
+                    <p class="product-description" data-translate="products.item2.description">Porción sin piel de calidad superior, lista para cocinar. Perfecta para platos donde la presentación es fundamental.</p>
+                    <div class="product-price">USD 9.5</div>
+                    <ul class="product-features">
+                        <li data-translate="products.item2.feature1">Calibre: 8 oz</li>
+                        <li data-translate="products.item2.feature2">Máxima pureza de sabor</li>
+                        <li data-translate="products.item2.feature3">Versatilidad culinaria</li>
+                    </ul>
                 </div>
+            </div>
 
-                <!-- Producto 3 -->
-                <div class="product-card" data-category="industrial">
-                    <div class="product-image">
-                        <img src="./assets/imgs/filete-industrial-con-piel.png" alt="Salmón Atlántico - Filete industrial con piel">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title" data-translate="products.item3.title">Salmón Atlántico - Filete Industrial con piel IVP</h3>
-                        <span class="product-quality" data-translate="products.quality.industrial">Industrial</span>
-                        <p class="product-description" data-translate="products.item3.description">Filete con piel de consistencia uniforme, ideal para procesos industriales y servicios de alimentación a gran escala.</p>
-                        <div class="product-price">USD 8</div>
-                        <ul class="product-features">
-                            <li data-translate="products.item3.feature1">Calibre: todos los calibres (1 - 8)</li>
-                            <li data-translate="products.item3.feature2">Alto rendimiento</li>
-                            <li data-translate="products.item3.feature3">Consistencia garantizada</li>
-                        </ul>
-                    </div>
+            <!-- Producto 3 -->
+            <div class="product-card" data-category="industrial">
+                <div class="product-image">
+                    <img 
+                        src="./assets/imgs/optimized/filete-industrial-con-piel-large.webp"
+                        srcset="
+                            ./assets/imgs/optimized/filete-industrial-con-piel-small.webp 300w,
+                            ./assets/imgs/optimized/filete-industrial-con-piel-large.webp 600w
+                        "
+                        sizes="(max-width: 768px) 300px, 600px"
+                        alt="Salmón Atlántico - Filete industrial con piel"
+                        loading="lazy"
+                        width="600"
+                        height="400">
                 </div>
-
-                <!-- Producto 4 -->
-                <div class="product-card" data-category="standard">
-                    <div class="product-image">
-                        <img src="./assets/imgs/filete-standard-con-piel.png" alt="Salmón Atlántico - Filete con piel">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title" data-translate="products.item4.title">Salmón Atlántico - Filete Standard con piel IVP</h3>
-                        <span class="product-quality" data-translate="products.quality.standard">Standard</span>
-                        <p class="product-description" data-translate="products.item4.description">Filete con piel de calidad estándar, balance perfecto entre calidad y precio para diversos usos culinarios.</p>
-                        <div class="product-price">USD 7.5</div>
-                        <ul class="product-features">
-                            <li data-translate="products.item4.feature1">Calibre: todos los calibres (1 - 8)</li>
-                            <li data-translate="products.item4.feature2">Sabor consistente</li>
-                            <li data-translate="products.item4.feature3">Ideal para restaurantes</li>
-                        </ul>
-                    </div>
+                <div class="product-info">
+                    <h3 class="product-title" data-translate="products.item3.title">Salmón Atlántico - Filete Industrial con piel IVP</h3>
+                    <span class="product-quality" data-translate="products.quality.industrial">Industrial</span>
+                    <p class="product-description" data-translate="products.item3.description">Filete con piel de consistencia uniforme, ideal para procesos industriales y servicios de alimentación a gran escala.</p>
+                    <div class="product-price">USD 8</div>
+                    <ul class="product-features">
+                        <li data-translate="products.item3.feature1">Calibre: todos los calibres (1 - 8)</li>
+                        <li data-translate="products.item3.feature2">Alto rendimiento</li>
+                        <li data-translate="products.item3.feature3">Consistencia garantizada</li>
+                    </ul>
                 </div>
+            </div>
 
-                <!-- Producto 5 -->
-                <div class="product-card" data-category="premium">
-                    <div class="product-image">
-                        <img src="./assets/imgs/filete-premium-con-piel.png" alt="Salmón Atlántico - Filete Premium con piel">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title" data-translate="products.item5.title">Salmón Atlántico - Filete Premium con piel IVP</h3>
-                        <span class="product-quality" data-translate="products.quality.premium">Premium</span>
-                        <p class="product-description" data-translate="products.item5.description">Filete con piel de categoría premium, con vetas de grasa perfectamente distribuidas para un sabor excepcional.</p>
-                        <div class="product-price">USD 9.5</div>
-                        <ul class="product-features">
-                            <li data-translate="products.item5.feature1">Calibre: todos los calibres (1 - 8)</li>
-                            <li data-translate="products.item5.feature2">Textura superior</li>
-                            <li data-translate="products.item5.feature3">Sabor intenso y delicado</li>
-                        </ul>
-                    </div>
+            <!-- Producto 4 -->
+            <div class="product-card" data-category="standard">
+                <div class="product-image">
+                    <img 
+                        src="./assets/imgs/optimized/filete-standard-con-piel-large.webp"
+                        srcset="
+                            ./assets/imgs/optimized/filete-standard-con-piel-small.webp 300w,
+                            ./assets/imgs/optimized/filete-standard-con-piel-large.webp 600w
+                        "
+                        sizes="(max-width: 768px) 300px, 600px"
+                        alt="Salmón Atlántico - Filete standard con piel"
+                        loading="lazy"
+                        width="600"
+                        height="400">
                 </div>
+                <div class="product-info">
+                    <h3 class="product-title" data-translate="products.item4.title">Salmón Atlántico - Filete Standard con piel IVP</h3>
+                    <span class="product-quality" data-translate="products.quality.standard">Standard</span>
+                    <p class="product-description" data-translate="products.item4.description">Filete con piel de calidad estándar, balance perfecto entre calidad y precio para diversos usos culinarios.</p>
+                    <div class="product-price">USD 7.5</div>
+                    <ul class="product-features">
+                        <li data-translate="products.item4.feature1">Calibre: todos los calibres (1 - 8)</li>
+                        <li data-translate="products.item4.feature2">Sabor consistente</li>
+                        <li data-translate="products.item4.feature3">Ideal para restaurantes</li>
+                    </ul>
+                </div>
+            </div>
 
-                <!-- Producto 6 -->
-                <div class="product-card" data-category="premium">
-                    <div class="product-image">
-                        <img src="./assets/imgs/filete-premium-sin-piel.png" alt="Salmón Atlántico - Filete sin piel">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title" data-translate="products.item6.title">Salmón Atlántico - Filete Premium sin piel IVP</h3>
-                        <span class="product-quality" data-translate="products.quality.premium">Premium</span>
-                        <p class="product-description" data-translate="products.item6.description">Nuestro producto estrella: filete sin piel de máxima calidad, seleccionado meticulosamente para los paladares más exigentes.</p>
-                        <div class="product-price">USD 12.6</div>
-                        <ul class="product-features">
-                            <li data-translate="products.item6.feature1">Calibre: todos los calibres (1 - 8)</li>
-                            <li data-translate="products.item6.feature2">Máxima pureza y frescura</li>
-                            <li data-translate="products.item6.feature3">Experiencia gastronómica superior</li>
-                        </ul>
-                    </div>
+            <!-- Producto 5 -->
+            <div class="product-card" data-category="premium">
+                <div class="product-image">
+                    <img 
+                        src="./assets/imgs/optimized/filete-premium-con-piel-large.webp"
+                        srcset="
+                            ./assets/imgs/optimized/filete-premium-con-piel-small.webp 300w,
+                            ./assets/imgs/optimized/filete-premium-con-piel-large.webp 600w
+                        "
+                        sizes="(max-width: 768px) 300px, 600px"
+                        alt="Salmón Atlántico - Filete premium con piel"
+                        loading="lazy"
+                        width="600"
+                        height="400">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title" data-translate="products.item5.title">Salmón Atlántico - Filete Premium con piel IVP</h3>
+                    <span class="product-quality" data-translate="products.quality.premium">Premium</span>
+                    <p class="product-description" data-translate="products.item5.description">Filete con piel de categoría premium, con vetas de grasa perfectamente distribuidas para un sabor excepcional.</p>
+                    <div class="product-price">USD 9.5</div>
+                    <ul class="product-features">
+                        <li data-translate="products.item5.feature1">Calibre: todos los calibres (1 - 8)</li>
+                        <li data-translate="products.item5.feature2">Textura superior</li>
+                        <li data-translate="products.item5.feature3">Sabor intenso y delicado</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Producto 6 -->
+            <div class="product-card" data-category="premium">
+                <div class="product-image">
+                    <img 
+                        src="./assets/imgs/optimized/filete-premium-sin-piel-large.webp"
+                        srcset="
+                            ./assets/imgs/optimized/filete-premium-sin-piel-small.webp 300w,
+                            ./assets/imgs/optimized/filete-premium-sin-piel-large.webp 600w
+                        "
+                        sizes="(max-width: 768px) 300px, 600px"
+                        alt="Salmón Atlántico - Filete premium sin piel"
+                        loading="lazy"
+                        width="600"
+                        height="400">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title" data-translate="products.item6.title">Salmón Atlántico - Filete Premium sin piel IVP</h3>
+                    <span class="product-quality" data-translate="products.quality.premium">Premium</span>
+                    <p class="product-description" data-translate="products.item6.description">Nuestro producto estrella: filete sin piel de máxima calidad, seleccionado meticulosamente para los paladares más exigentes.</p>
+                    <div class="product-price">USD 12.6</div>
+                    <ul class="product-features">
+                        <li data-translate="products.item6.feature1">Calibre: todos los calibres (1 - 8)</li>
+                        <li data-translate="products.item6.feature2">Máxima pureza y frescura</li>
+                        <li data-translate="products.item6.feature3">Experiencia gastronómica superior</li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Catálogo PDF -->
     <section id="catalogo-pdf">
@@ -218,7 +278,7 @@
             <p class="catalog-intro" data-translate="catalog.intro">Visualiza nuestro catálogo completo en formato PDF. Mantiene el diseño original y es ideal para compartir o imprimir.</p>
             
             <div class="pdf-container">
-                <iframe id="pdfViewer" src="./pdf/catalogo-salmoprime-es.pdf" class="pdf-viewer" title="Visor de PDF del Catálogo de Productos">
+                <iframe id="pdfViewer" loading="lazy" src="./pdf/catalogo-salmoprime-es.pdf" class="pdf-viewer" title="Visor de PDF del Catálogo de Productos">
                     Tu navegador no soporta la visualización de PDFs. 
                     <a href="./pdf/catalogo-salmoprime-es.pdf">Descarga el catálogo aquí</a>.
                 </iframe>
@@ -334,6 +394,6 @@
     <!-- Botón flotante para volver arriba -->
     <button id="backToTop" class="back-to-top" title="Volver arriba">↑</button>
 
-    <script src="./js/scripts.js"></script>
+    <script src="./js/scripts.min.js"></script>
 </body>
 </html>
